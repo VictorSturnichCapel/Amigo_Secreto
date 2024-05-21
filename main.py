@@ -81,8 +81,13 @@ if __name__ == "__main__":
         # gerar lista de participantes randomica
         lista_sorteada_participantes = montar_participantes(df)
 
-        # passar por cada participantes para enviar o email 
-        preparando_envio(lista_sorteada_participantes,df)
+        # Se a lista de pessoas adicionados for maior que 1, continua o processo
+        if len(lista_sorteada_participantes) > 1:
+            # passar por cada participantes para enviar o email 
+            preparando_envio(lista_sorteada_participantes,df)
+            print('Sorteio finalizado')
+        else:
+            print('Adicione mais de uma pessoa')
         
     except Exception as e:
         print(f'Erro: {e}')
